@@ -2263,6 +2263,12 @@ Unit = Class(moho.unit_methods) {
         if bp.EnhancementPresetAssigned then
             self:ForkThread(self.CreatePresetEnhancementsThread)
         end
+        
+        --Added by IceDreamer to raise Torpedo Launchers and other such units slightly for targeting purposes
+		if bp.RaiseDistance then
+			local Position = self:GetPosition()
+			self:SetPosition({Position[1], Position[2] + bp.RaiseDistance, Position[3]}, true)		
+		end        
     end,
 
     StartBeingBuiltEffects = function(self, builder, layer)
@@ -4146,9 +4152,9 @@ Unit = Class(moho.unit_methods) {
                 self.MyShield = UnitShield {
                     Owner = self,
 					ImpactEffects = bpShield.ImpactEffects or '',                     
-                    CollisionSizeX = bp.SizeX * 0.75 or 1,
-                    CollisionSizeY = bp.SizeY * 0.75 or 1,
-                    CollisionSizeZ = bp.SizeZ * 0.75 or 1,
+                    CollisionSizeX = bp.SizeX * 0.5 or 1,    --Reduce from 0.75 to 0.5 to make them the same size as the collisionbox
+                    CollisionSizeY = bp.SizeY * 0.5 or 1,
+                    CollisionSizeZ = bp.SizeZ * 0.5 or 1,
                     CollisionCenterX = bp.CollisionOffsetX or 0,
                     CollisionCenterY = bp.CollisionOffsetY or 0,
                     CollisionCenterZ = bp.CollisionOffsetZ or 0,
