@@ -302,9 +302,9 @@ UnitBlueprint {
     SelectionSizeX = 3.75,
     SelectionSizeZ = 3.75,
     SelectionThickness = 0.28,
-    SizeX = 5.6,
-    SizeY = 4.2,
-    SizeZ = 5.6,
+    SizeX = 4.6,
+    SizeY = 4.0,
+    SizeZ = 4.6,
     StrategicIconName = 'icon_experimental_generic',
     StrategicIconSortPriority = 45,
     Transport = {
