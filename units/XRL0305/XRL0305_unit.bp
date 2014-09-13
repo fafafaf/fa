@@ -245,7 +245,6 @@ UnitBlueprint {
             DamageType = 'Normal',
             DisplayName = 'Heavy Disintegrator Pulse Laser',
             FireTargetLayerCapsTable = {
-                Air = 'Land|Water|Seabed',
                 Seabed = 'Land|Water|Seabed',
                 Land = 'Land|Water|Seabed',
             },
