@@ -1,3 +1,4 @@
+
 local UIUtil = import('/lua/ui/uiutil.lua')
 local LayoutHelpers = import('/lua/maui/layouthelpers.lua')
 local Group = import('/lua/maui/group.lua').Group
@@ -16,7 +17,7 @@ local pauseBtn = false
 
 timeoutsRemaining = false
 
-if SessionIsActive() and SessionIsMultiplayer() then
+if SessionIsMultiplayer() then
     local scenInfo = SessionGetScenarioInfo()
     timeoutsRemaining = tonumber(scenInfo.Options.Timeouts)
 end
