@@ -2264,6 +2264,12 @@ Unit = Class(moho.unit_methods) {
         if bp.EnhancementPresetAssigned then
             self:ForkThread(self.CreatePresetEnhancementsThread)
         end
+        
+        --Added by IceDreamer to raise Torpedo Launchers and other such units slightly for targeting purposes
+		if bp.RaiseDistance then
+			local Position = self:GetPosition()
+			self:SetPosition({Position[1], Position[2] + bp.RaiseDistance, Position[3]}, true)		
+		end        
     end,
 
     StartBeingBuiltEffects = function(self, builder, layer)
