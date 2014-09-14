@@ -29,9 +29,8 @@ UAL0303 = Class(AWalkingLandUnit) {
         EffectUtil.CreateAeonCommanderBuildingEffects( self, unitBeingBuilt, self:GetBlueprint().General.BuildBones.BuildEffectBones, self.BuildEffectsBag )
     end,
 }
---	Begin Shielding fix - Sphere of Shield size when on, box when off, to allow personal shield code to work
---  Once Sheeo has written it in. Commented out until such a time, but it's here and ready to go.
---[[
+--	Dynamically change the hitbox so it's a sphere when the personal shield is on,
+--  and a normal box when it's off.
 	OnShieldEnabled = function(self)
 		local bp = self:GetBlueprint()	
 		AWalkingLandUnit.OnShieldEnabled(self)
@@ -55,7 +54,6 @@ UAL0303 = Class(AWalkingLandUnit) {
 		AWalkingLandUnit.OnShieldEnergyDepleted(self)
 		self:SetCollisionShape('Box', 0, bp.SizeY * 0.5, 0, bp.SizeX * 0.5, bp.SizeY * 0.5, bp.SizeZ * 0.5)
 	end,	
---]]
 --	End Shielding fix
 
 TypeClass = UAL0303
